@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kitty博客">
+    <meta name="keyword" content="kitty博客">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        RSA+AES请求组合加密 - kitty博客 | kitty&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 农夫山泉有点甜 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.png">
+        </div>
+        <div class="name">
+            <i>kitty</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AES算法流程"><span class="toc-text">AES算法流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#发送方："><span class="toc-text">发送方：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#接收方："><span class="toc-text">接收方：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RSA算法流程"><span class="toc-text">RSA算法流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#接收方：-1"><span class="toc-text">接收方：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#发送方：-1"><span class="toc-text">发送方：</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#RSA-AES结合加密"><span class="toc-text">RSA+AES结合加密</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#接收方：-2"><span class="toc-text">接收方：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#发送方：-2"><span class="toc-text">发送方：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-RSA-AES加密过程"><span class="toc-text">Android RSA+AES加密过程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Android："><span class="toc-text">Android：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sever："><span class="toc-text">sever：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-text">参考链接</span></a></li>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 农夫山泉有点甜 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        RSA+AES请求组合加密
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-03-18 17:53:58</span></span>
+        
+        
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <p><a name="e2d6d0e3"></a></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><blockquote>
+<p>加密方式分为：<code>AES(对称加密)</code>和<code>RSA(非对称加密)</code></p>
+</blockquote>
+<p><a name="cc8942e5"></a></p>
+<h3 id="AES算法流程"><a href="#AES算法流程" class="headerlink" title="AES算法流程"></a>AES算法流程</h3><p><a name="4f92e2ec"></a></p>
+<h5 id="发送方："><a href="#发送方：" class="headerlink" title="发送方："></a>发送方：</h5><ol>
+<li>创建AES私钥，用口令对私钥加密</li>
+<li>将加密后的私钥发送给接收方</li>
+<li>用私钥加密明文，并将密文和加密后的私钥发给接收方</li>
+</ol>
+<p><a name="a9afad8b"></a></p>
+<h5 id="接收方："><a href="#接收方：" class="headerlink" title="接收方："></a>接收方：</h5><ol>
+<li>解密这个私钥</li>
+<li>用解密后的密钥把密文解密成明文<br><a name="a1c5aaa2"></a><h3 id="RSA算法流程"><a href="#RSA算法流程" class="headerlink" title="RSA算法流程"></a>RSA算法流程</h3></li>
+</ol>
+<p><a name="a9afad8b-1"></a></p>
+<h5 id="接收方：-1"><a href="#接收方：-1" class="headerlink" title="接收方："></a>接收方：</h5><ol>
+<li>创建RSA密钥对（公钥和私钥）公钥发给发送方，私钥存在接收方。</li>
+<li>接收方用私钥对密文解密</li>
+</ol>
+<p><a name="4f92e2ec-1"></a></p>
+<h5 id="发送方：-1"><a href="#发送方：-1" class="headerlink" title="发送方："></a>发送方：</h5><ol>
+<li>公钥对明文加密，将密文发给接收方</li>
+</ol>
+<p><a name="54e51201"></a></p>
+<h2 id="RSA-AES结合加密"><a href="#RSA-AES结合加密" class="headerlink" title="RSA+AES结合加密"></a>RSA+AES结合加密</h2><p><a name="a9afad8b-2"></a></p>
+<h5 id="接收方：-2"><a href="#接收方：-2" class="headerlink" title="接收方："></a>接收方：</h5><ol>
+<li>创建RSA密钥对（公钥、私钥）把公钥发给发送方，自己保存私钥</li>
+<li>用RSA私钥解密加密后的AES密钥，并用AES密钥解密密文，得到明文</li>
+</ol>
+<p><a name="4f92e2ec-2"></a></p>
+<h5 id="发送方：-2"><a href="#发送方：-2" class="headerlink" title="发送方："></a>发送方：</h5><ol>
+<li>创建AES密钥，并用AES加密明文，再用RSA公钥加密AES密钥，并把加密后的AES密钥和密文发送给接收方</li>
+</ol>
+<p><a name="129ccec9"></a></p>
+<h2 id="Android-RSA-AES加密过程"><a href="#Android-RSA-AES加密过程" class="headerlink" title="Android RSA+AES加密过程"></a>Android RSA+AES加密过程</h2><p><a name="0844abc0"></a></p>
+<h5 id="Android："><a href="#Android：" class="headerlink" title="Android："></a>Android：</h5><ol>
+<li>生成AES密钥，并用AES密钥对明文加密</li>
+<li>使用RSA公钥将AES密钥(aesKey)加密成encryptAesKey，作为HTTP请求头</li>
+<li>将AES加密明文后的密文（encryptData）作为请求体，将请求体和请求头一起发给sever</li>
+</ol>
+<p><a name="5c1a77b0"></a></p>
+<h5 id="sever："><a href="#sever：" class="headerlink" title="sever："></a>sever：</h5><ol>
+<li>生成RSA密钥对（公钥、私钥）,提供接口给客户端，发送公钥</li>
+<li>获得AES加密后的<code>请求头（encryptAesKey）</code>，获得加密后的<code>请求体（encryptData）</code></li>
+<li>使用私钥解密请求头<code>请求头（encryptAesKey）</code>获得到AES密钥去<code>请求体（encryptData）</code>里的密文</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/259158/1552902841850-72dada79-acb1-4e99-bf81-56fad72ef6d9.png#align=left&amp;display=inline&amp;height=1228&amp;originHeight=1228&amp;originWidth=700&amp;size=0&amp;status=done&amp;width=700" alt></p>
+<p><a name="ea6f3b87"></a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p><a href="http://blog.csdn.net/ouyang_peng/article/details/50983574" target="_blank" rel="noopener">我的Android进阶之旅——&gt;Android采用AES+RSA的加密机制对http请求进行加密</a><br><a href="http://blog.csdn.net/mq2856992713/article/details/52587254" target="_blank" rel="noopener"> Android数据加密之RSA+AES混合加密</a><br><a href="http://www.cnblogs.com/whoislcj/p/5473030.html" target="_blank" rel="noopener">Android数据加密之Aes加密</a></p>
+</blockquote>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/1930682997">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/lemonL">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

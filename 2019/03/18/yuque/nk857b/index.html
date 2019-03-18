@@ -11,7 +11,7 @@
 
     <title>
         
-        kitty博客 | kitty&#39;s Blog
+        C++ 第一章 - kitty博客 | kitty&#39;s Blog
         
     </title>
 
@@ -53,7 +53,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li class="active">
+            <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -88,6 +88,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-基本知识"><span class="toc-text">C++ 基本知识</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -111,129 +115,108 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 576px">
-    
-    <div class="post-preview">
-        <div class="post-time">2019-03-18</div>
-        <div class="post-info">
-            <a href="/2019/03/18/yuque/cvfg0g/">
-                <h3>
-                    C++ 虚析构和虚函数的原理
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        C++ 第一章
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-03-18</div>
-        <div class="post-info">
-            <a href="/2019/03/18/yuque/oxz24f/">
-                <h3>
-                    WEB前端 CSS选择器
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-03-18 17:15:22</span></span>
+        
+        
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-03-18</div>
-        <div class="post-info">
-            <a href="/2019/03/18/yuque/ir3uw4/">
-                <h3>
-                    WEB前端 盒子模型初识
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-03-18</div>
-        <div class="post-info">
-            <a href="/2019/03/18/yuque/whdmw7/">
-                <h3>
-                    RSA+AES请求组合加密
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-03-18</div>
-        <div class="post-info">
-            <a href="/2019/03/18/yuque/ph7ndd/">
-                <h3>
-                    Android事件传递机制
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-03-18</div>
-        <div class="post-info">
-            <a href="/2019/03/18/yuque/bzavq1/">
-                <h3>
-                    Kotlin基本数据类型
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-03-18</div>
-        <div class="post-info">
-            <a href="/2019/03/18/yuque/ugsunf/">
-                <h3>
-                    const与基本数据类型
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2019-03-18</div>
-        <div class="post-info">
-            <a href="/2019/03/18/yuque/qbu9z0/">
-                <h3>
-                    Git命令
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-</div>
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page/2/">Older Posts &rarr;</a>
-    </li>
-    
+    <div class="post-content ">
+        <p><a name="6dc5ca63"></a></p>
+<h1 id="C-基本知识"><a href="#C-基本知识" class="headerlink" title="C++ 基本知识"></a>C++ 基本知识</h1><ul>
+<li>C++编译过程<br></li>
+<li>源文件(<em>.cpp)-&gt;目标文件(</em>.obj)-&gt;可执行文件(*.exe)</li>
+<li>C++命名规则<br></li>
+<li>只能使用字母字符数字和下划线（_）</li>
+<li>第一个不能是数字</li>
+<li><strong>C++是区分大小写的</strong></li>
+<li>不能使用C++关键词</li>
+<li>命名空间<br></li>
+<li><code>using namespace</code> 指明来自哪个空间</li>
+<li>头文件</li>
+<li><p>有两种使用方式</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;*&gt; //尖括号是标准头文件预先检查</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">".*"</span> <span class="comment">//用户自己提供的头文件</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基本数据类型</p>
+</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">short int</td>
+<td style="text-align:left">16</td>
+</tr>
+<tr>
+<td style="text-align:left">int</td>
+<td style="text-align:left">16</td>
+</tr>
+<tr>
+<td style="text-align:left">long int</td>
+<td style="text-align:left">32</td>
+</tr>
+<tr>
+<td style="text-align:left">char</td>
+<td style="text-align:left">8</td>
+</tr>
+<tr>
+<td style="text-align:left">wchar_t</td>
+<td style="text-align:left">16</td>
+</tr>
+<tr>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">float</td>
+<td style="text-align:left">6</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="text-align:left">long double</td>
+<td style="text-align:left">10</td>
+</tr>
+</tbody>
+</table>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -294,7 +277,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

@@ -11,7 +11,7 @@
 
     <title>
         
-        Web - kitty博客 | kitty&#39;s Blog
+        Kotlin基本数据类型 - kitty博客 | kitty&#39;s Blog
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Kotlin数据类型"><span class="toc-text">Kotlin数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Kotlin八大数组类型"><span class="toc-text">Kotlin八大数组类型</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -119,11 +119,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        Web
+        Kotlin基本数据类型
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2019-03-04 00:42:03</span></span>
+        <span class="attr">发布于：<span>2019-03-18 17:51:53</span></span>
         
         
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -131,7 +131,79 @@
 
     </div>
     <div class="post-content ">
-        <p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/259158/1551632785846-0601c7b7-3063-40ad-bcff-b0b4fe7b80ef.jpeg#align=left&amp;display=inline&amp;height=121&amp;name=b.jpg&amp;originHeight=300&amp;originWidth=400&amp;size=19101&amp;status=done&amp;width=161" alt="b.jpg"><br>这是一个测试页面,来着语雀！</p>
+        <p><a name="8a276886"></a></p>
+<h1 id="Kotlin数据类型"><a href="#Kotlin数据类型" class="headerlink" title="Kotlin数据类型"></a>Kotlin数据类型</h1><table>
+<thead>
+<tr>
+<th>type</th>
+<th>Bit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Double</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Short</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Byte</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p><a name="4056a7ee"></a></p>
+<h2 id="Kotlin八大数组类型"><a href="#Kotlin八大数组类型" class="headerlink" title="Kotlin八大数组类型"></a>Kotlin八大数组类型</h2><table>
+<thead>
+<tr>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CharArray</td>
+</tr>
+<tr>
+<td>ByteArray</td>
+</tr>
+<tr>
+<td>ShortArray</td>
+</tr>
+<tr>
+<td>IntArray</td>
+</tr>
+<tr>
+<td>FloatArray</td>
+</tr>
+<tr>
+<td>DoubleArray</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">常量 定义：val FINAL_HELLO_WORLD: String = <span class="string">"Hello World"</span>  <span class="comment">//val</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量定义：<span class="keyword">var</span> text: String = hello  <span class="comment">//var</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text: <span class="built_in">String</span>? = helloWorld   <span class="comment">//String 类型</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val textArray: <span class="built_in">Array</span>&lt;Char&gt; = arrayOf(<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'W'</span>, <span class="string">'o'</span>, <span class="string">'r'</span>, <span class="string">'l'</span>, <span class="string">'d'</span>)   <span class="comment">// Char 字符数组</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val helloWorldCharArray: CharArray = charArrayOf(<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'W'</span>, <span class="string">'o'</span>, <span class="string">'r'</span>, <span class="string">'l'</span>, <span class="string">'d'</span>)  <span class="comment">//Kotlin 类型的字符数组</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val helloWorldLength: Int = helloWorld.length  <span class="comment">//字符长度 int类型</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val helloWorldLengthLong: Long = helloWorldLength.toLong()  <span class="comment">//字符长度转换为Long 类型</span></span><br></pre></td></tr></table></figure>
 
         
             <div class="donate-container">

@@ -11,7 +11,7 @@
 
     <title>
         
-        Web - kitty博客 | kitty&#39;s Blog
+        Android事件传递机制 - kitty博客 | kitty&#39;s Blog
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件传递要经的方法"><span class="toc-text">事件传递要经的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件传递的简介"><span class="toc-text">事件传递的简介</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ViewGroup"><span class="toc-text">ViewGroup</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#需要注意："><span class="toc-text">需要注意：</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -119,11 +119,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        Web
+        Android事件传递机制
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2019-03-04 00:42:03</span></span>
+        <span class="attr">发布于：<span>2019-03-18 17:53:18</span></span>
         
         
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -131,7 +131,33 @@
 
     </div>
     <div class="post-content ">
-        <p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/259158/1551632785846-0601c7b7-3063-40ad-bcff-b0b4fe7b80ef.jpeg#align=left&amp;display=inline&amp;height=121&amp;name=b.jpg&amp;originHeight=300&amp;originWidth=400&amp;size=19101&amp;status=done&amp;width=161" alt="b.jpg"><br>这是一个测试页面,来着语雀！</p>
+        <p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/259158/1552902806606-28de3366-bc92-49b5-a583-185bb639aeb4.jpeg#align=left&amp;display=inline&amp;height=490&amp;originHeight=800&amp;originWidth=1217&amp;size=0&amp;status=done&amp;width=746" alt></p>
+<p><a name="8bdaa6d6"></a></p>
+<h3 id="事件传递要经的方法"><a href="#事件传递要经的方法" class="headerlink" title="事件传递要经的方法"></a>事件传递要经的方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span></span>; <span class="comment">//分发事件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span></span>; <span class="comment">//拦截事件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent ev)</span></span>; <span class="comment">//处理事件</span></span><br></pre></td></tr></table></figure>
+<p><a name="f5af0e51"></a></p>
+<h3 id="事件传递的简介"><a href="#事件传递的简介" class="headerlink" title="事件传递的简介"></a>事件传递的简介</h3><p><a name="ViewGroup"></a></p>
+<h5 id="ViewGroup"><a href="#ViewGroup" class="headerlink" title="ViewGroup"></a>ViewGroup</h5><p>接收事件后，进行分发：</p>
+<ol>
+<li>如果不进行分发，则<code>dispatchTouchEvent</code>返回<code>true</code>，事件消亡未处理。</li>
+<li>如果进行分发该事件，则<code>dispatchTouchEvent</code>返回<code>false</code>，处理或传递该事件：</li>
+</ol>
+<ul>
+<li>如果想自己处理该事件,则<code>onInterceptTouchEvent</code>返回<code>true</code>，拦截事件，给自己的<code>onTouchEvent</code>进行处理；</li>
+<li>如果不想处理该事件，则<code>onInterceptTouchEvent</code>返回<code>false</code>，把事件传递给子View进行处理。</li>
+</ul>
+<ol>
+<li>对于最底层的子View，没有<code>onInterceptEvent</code>拦截事件，接收到事件后进行分发：</li>
+</ol>
+<ul>
+<li>如果不进行分发，则<code>dispatchTouchEvent</code>返回<code>false</code>，事件未处理，注意这里的最小子view返回<code>false</code>代表未分发事件；</li>
+<li>如果进行分发该事件，则<code>dispatchTouchEvent</code>返回<code>true</code>：</li>
+</ul>
+<ol>
+<li>如果处理该事件，则<code>onTouchEvent</code>返回<code>true</code>把该事件消费掉；</li>
+<li>如果不想处理该事件，则<code>onTouchEvent</code>返回<code>false</code>，等待上级处理。</li>
+</ol>
+<p><a name="c9eb9943"></a></p>
+<h5 id="需要注意："><a href="#需要注意：" class="headerlink" title="需要注意："></a>需要注意：</h5><p>viewGroup中包含的最小子view是不含拦截<code>onInterceptTouchEvent</code>事件的，最小的子view比如Button,TextView…因为他们已在树的最底层，已无法向下传递了。</p>
 
         
             <div class="donate-container">

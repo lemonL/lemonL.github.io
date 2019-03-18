@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kitty博客">
+    <meta name="keyword" content="kitty博客">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        类对象定义 三 - kitty博客 | kitty&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 农夫山泉有点甜 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.png">
+        </div>
+        <div class="name">
+            <i>kitty</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#浅拷贝"><span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深拷贝"><span class="toc-text">深拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象指针"><span class="toc-text">对象指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象成员指针"><span class="toc-text">对象成员指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-指针"><span class="toc-text">this 指针</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 农夫山泉有点甜 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        类对象定义 三
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-03-18 17:11:58</span></span>
+        
+        
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <p><a name="88a1a4d3"></a></p>
+<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><blockquote>
+<p>浅拷贝：拷贝后，两个对象会共同指向一个地址，如果有一个对象更改了数据，另一个对象也会受影响，删除对象话，可能会导致释放两次</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//.h</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">student</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    student();</span><br><span class="line">    student(<span class="built_in">string</span> name);</span><br><span class="line">    student(<span class="keyword">const</span> student &amp;stu);</span><br><span class="line">    ~student();</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> m_name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//cpp  这叫定义</span></span><br><span class="line">student::student() &#123;</span><br><span class="line">    m_name=<span class="string">"kitty"</span>;</span><br><span class="line">    m_p=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"gou zao"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">string</span> student::getName()&#123;</span><br><span class="line">    <span class="keyword">return</span> m_name;</span><br><span class="line">&#125;</span><br><span class="line">student::student(<span class="built_in">string</span> name) &#123;</span><br><span class="line">    m_name=name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//拷贝构造函数 （浅拷贝）</span></span><br><span class="line">student::student(<span class="keyword">const</span> student &amp;stu) &#123;</span><br><span class="line"><span class="comment">// 如果通过  student stu1=stu  这样的方式创建度对象，会执行拷贝构造函数</span></span><br><span class="line">    m_name=stu.m_name; <span class="comment">//浅拷贝</span></span><br><span class="line">    m_p=stu.m_p;<span class="comment">//浅拷贝 将复制的对象的 指针拷贝给了 另一个对象， 现在两个对象 共同指向了一个 地址</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"qian kaobei"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line">student::~student() &#123;</span><br><span class="line">    <span class="keyword">delete</span> []m_p; <span class="comment">//这样删除的话，浅拷贝会出问题</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"xi gou"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> student::printAddr() &#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"dizhi:"</span>&lt;&lt;*m_p&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(student s)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    student s;</span><br><span class="line">    <span class="function">student <span class="title">s1</span><span class="params">(s)</span></span>;</span><br><span class="line">    </span><br><span class="line">    s.printAddr();</span><br><span class="line">    s1.printAddr();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a name="510a44e6"></a></p>
+<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//.h</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">student</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    student();</span><br><span class="line">    student(<span class="built_in">string</span> name);</span><br><span class="line">    student(<span class="keyword">const</span> student &amp;stu);</span><br><span class="line">    ~student();</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printAddr</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> count;</span><br><span class="line">    <span class="built_in">string</span> m_name;</span><br><span class="line">    <span class="keyword">int</span> *m_p;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//cpp  这叫定义</span></span><br><span class="line">student::student() &#123;</span><br><span class="line">    m_name=<span class="string">"kitty"</span>;</span><br><span class="line">    count=<span class="number">5</span>;</span><br><span class="line">    m_p=<span class="keyword">new</span> <span class="keyword">int</span>[count]; <span class="comment">//初始化数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;<span class="comment">//数组赋值</span></span><br><span class="line">        m_p[i]=i;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"value:"</span>&lt;&lt;m_p[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"gou zao"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">string</span> student::getName()&#123;</span><br><span class="line">    <span class="keyword">return</span> m_name;</span><br><span class="line">&#125;</span><br><span class="line">student::student(<span class="built_in">string</span> name) &#123;</span><br><span class="line">    m_name=name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//拷贝构造函数 （深拷贝）</span></span><br><span class="line">student::student(<span class="keyword">const</span> student &amp;stu) &#123;</span><br><span class="line">    count=stu.count;</span><br><span class="line">    <span class="comment">//深拷贝 重新开辟一块内存空间</span></span><br><span class="line">    m_p=<span class="keyword">new</span> <span class="keyword">int</span> [count];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;count; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        m_p[i]=stu.m_p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"shen kaobei"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line">student::~student() &#123;</span><br><span class="line">    <span class="keyword">delete</span> []m_p;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"xi gou"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> student::printAddr() &#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"dizhi:"</span>&lt;&lt;m_p&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(student s)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    student s;</span><br><span class="line">    <span class="function">student <span class="title">s1</span><span class="params">(s)</span></span>;</span><br><span class="line">    s.printAddr();</span><br><span class="line">    s1.printAddr();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a name="4d7294a1"></a></p>
+<h2 id="对象指针"><a href="#对象指针" class="headerlink" title="对象指针"></a>对象指针</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    student *s=<span class="keyword">new</span> student();</span><br><span class="line">    s-&gt;printAddr();</span><br><span class="line">    student *s1=<span class="keyword">new</span> student();</span><br><span class="line">    (*s1).printAddr();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a name="2278833b"></a></p>
+<h2 id="对象成员指针"><a href="#对象成员指针" class="headerlink" title="对象成员指针"></a>对象成员指针</h2><blockquote>
+<p>对象成员指针 类似JAVA中的 对象属性<br>例如：private Bean  bean;<br>指针类型大小为：4</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Teacher(<span class="built_in">string</span> name, <span class="keyword">int</span> age);</span><br><span class="line"></span><br><span class="line">    ~Teacher();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> m_Name;</span><br><span class="line">    <span class="keyword">int</span> m_Age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//.h</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Student(<span class="built_in">string</span> nameA, <span class="keyword">int</span> ageA, <span class="built_in">string</span> nameB , <span class="keyword">int</span> ageB);</span><br><span class="line"></span><br><span class="line">    ~Student();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printInfo</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Teacher *m_teacherA;</span><br><span class="line">    Teacher *m_teacherB;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Teacher::Teacher(<span class="built_in">string</span> name, <span class="keyword">int</span> age) &#123;</span><br><span class="line">    m_Name = name;</span><br><span class="line">    m_Age = age;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Teacher gou zao name: "</span> &lt;&lt; m_Name &lt;&lt; <span class="string">" age: "</span> &lt;&lt; m_Age &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Teacher::~Teacher() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Teacher xi gou name: "</span> &lt;&lt; m_Name &lt;&lt; <span class="string">" age: "</span> &lt;&lt; m_Age &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Teacher::getAge() &#123;</span><br><span class="line">    <span class="keyword">return</span> m_Age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> Teacher::getName() &#123;</span><br><span class="line">    <span class="keyword">return</span> m_Name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//cpp  这叫定义</span></span><br><span class="line">Student::Student(<span class="built_in">string</span> nameA, <span class="keyword">int</span> ageA, <span class="built_in">string</span> nameB , <span class="keyword">int</span> ageB)  &#123;</span><br><span class="line"></span><br><span class="line">    m_teacherA=<span class="keyword">new</span> Teacher(nameA,ageA);</span><br><span class="line">    m_teacherB=<span class="keyword">new</span> Teacher(nameB,ageB);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Student gou zao"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student::~Student() &#123;</span><br><span class="line">    <span class="keyword">delete</span> m_teacherA;</span><br><span class="line">    <span class="keyword">delete</span> m_teacherB;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Student xi gou"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> Student::printInfo() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"printInfo"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"( A: "</span> &lt;&lt;m_teacherA-&gt;getName()&lt;&lt;<span class="string">","</span>&lt;&lt;m_teacherA-&gt;getAge()&lt;&lt;<span class="string">")"</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"( B: "</span> &lt;&lt;m_teacherB-&gt;getName()&lt;&lt;<span class="string">","</span>&lt;&lt;m_teacherB-&gt;getAge()&lt;&lt;<span class="string">")"</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Student *s=<span class="keyword">new</span> Student(<span class="string">"kitty"</span>,<span class="number">20</span>,<span class="string">"tony"</span>,<span class="number">22</span>);</span><br><span class="line">    (*s).printInfo();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; <span class="keyword">sizeof</span>(s)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; <span class="keyword">sizeof</span>(Student)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">delete</span> s;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输出结果：</span><br><span class="line">Teacher gou zao name: kitty age: <span class="number">20</span></span><br><span class="line">Teacher gou zao name: tony age: <span class="number">22</span></span><br><span class="line">Student gou zao</span><br><span class="line">printInfo</span><br><span class="line">( A: kitty,<span class="number">20</span>)</span><br><span class="line">( B: tony,<span class="number">22</span>)</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line">Teacher xi gou name: kitty age: <span class="number">20</span></span><br><span class="line">Teacher xi gou name: tony age: <span class="number">22</span></span><br><span class="line">Student xi gou</span><br></pre></td></tr></table></figure>
+<p><a name="e95a86a0"></a></p>
+<h2 id="this-指针"><a href="#this-指针" class="headerlink" title="this 指针"></a>this 指针</h2><blockquote>
+<p>和JAVA中的this指针差不多一个意思</p>
+</blockquote>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/1930682997">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/lemonL">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

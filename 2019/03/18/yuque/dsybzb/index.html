@@ -11,7 +11,7 @@
 
     <title>
         
-        Web - kitty博客 | kitty&#39;s Blog
+        C++ 继承 - kitty博客 | kitty&#39;s Blog
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-继承"><span class="toc-text">C++继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#公有-public-继承"><span class="toc-text">公有(public)继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保护-protected-继承"><span class="toc-text">保护(protected)继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#私有-private-继承"><span class="toc-text">私有(private)继承</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -119,11 +119,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        Web
+        C++ 继承
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2019-03-04 00:42:03</span></span>
+        <span class="attr">发布于：<span>2019-03-18 17:20:46</span></span>
         
         
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -131,7 +131,89 @@
 
     </div>
     <div class="post-content ">
-        <p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/259158/1551632785846-0601c7b7-3063-40ad-bcff-b0b4fe7b80ef.jpeg#align=left&amp;display=inline&amp;height=121&amp;name=b.jpg&amp;originHeight=300&amp;originWidth=400&amp;size=19101&amp;status=done&amp;width=161" alt="b.jpg"><br>这是一个测试页面,来着语雀！</p>
+        <p><a name="81fc844f"></a></p>
+<h1 id="C-继承"><a href="#C-继承" class="headerlink" title="C++继承"></a>C++继承</h1><p><a name="ca61434c"></a></p>
+<h2 id="公有-public-继承"><a href="#公有-public-继承" class="headerlink" title="公有(public)继承"></a>公有(public)继承</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;<span class="comment">//public 权限</span></span><br><span class="line"><span class="keyword">protected</span>: <span class="comment">//protected 权限</span></span><br><span class="line">    <span class="built_in">string</span> m_strName;</span><br><span class="line">    <span class="keyword">int</span> m_iAge;</span><br><span class="line"><span class="keyword">private</span>:<span class="comment">//private权限</span></span><br><span class="line">    <span class="built_in">string</span> test;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> :</span> <span class="keyword">public</span> Person &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">work</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">int</span> m_iSalary;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">父类成员访问属性</th>
+<th style="text-align:center">继承方式</th>
+<th style="text-align:center">子类成员访问属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">private成员</td>
+<td style="text-align:center">public</td>
+<td style="text-align:center">无法访问</td>
+</tr>
+<tr>
+<td style="text-align:center">protected成员</td>
+<td style="text-align:center">public</td>
+<td style="text-align:center">protected</td>
+</tr>
+<tr>
+<td style="text-align:center">public成员</td>
+<td style="text-align:center">public</td>
+<td style="text-align:center">public</td>
+</tr>
+</tbody>
+</table>
+<p><a name="b1ad912d"></a></p>
+<h2 id="保护-protected-继承"><a href="#保护-protected-继承" class="headerlink" title="保护(protected)继承"></a>保护(protected)继承</h2><table>
+<thead>
+<tr>
+<th>父类成员访问属性</th>
+<th>继承方式</th>
+<th>子类成员访问属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private成员</td>
+<td>protected</td>
+<td>无法访问</td>
+</tr>
+<tr>
+<td>protected成员</td>
+<td>protected</td>
+<td>protected</td>
+</tr>
+<tr>
+<td>public成员</td>
+<td>protected</td>
+<td>protected</td>
+</tr>
+</tbody>
+</table>
+<p><a name="ddecc837"></a></p>
+<h2 id="私有-private-继承"><a href="#私有-private-继承" class="headerlink" title="私有(private)继承"></a>私有(private)继承</h2><table>
+<thead>
+<tr>
+<th>类成员访问属性</th>
+<th>继承方式</th>
+<th>子类成员访问属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private成员</td>
+<td>private</td>
+<td>无法访问</td>
+</tr>
+<tr>
+<td>protected成员</td>
+<td>private</td>
+<td>private</td>
+</tr>
+<tr>
+<td>public成员</td>
+<td>private</td>
+<td>private</td>
+</tr>
+</tbody>
+</table>
 
         
             <div class="donate-container">

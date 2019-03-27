@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="WEB,CSS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="WEB前端 盒子模型初识">
+<meta name="keywords" content="WEB,CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB前端 盒子模型初识">
+<meta property="og:url" content="https://kitty.kim/2019/03/18/yuque/ir3uw4/index.html">
+<meta property="og:site_name" content="kitty Blog">
+<meta property="og:description" content="WEB前端 盒子模型初识">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-27T07:23:24.356Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WEB前端 盒子模型初识">
+<meta name="twitter:description" content="WEB前端 盒子模型初识">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kitty.kim/2019/03/18/yuque/ir3uw4/">
+
+
+
+
+
+  <title>WEB前端 盒子模型初识 | kitty Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a0f76aae26e26312bd8bcd44b617664";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">kitty Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">农夫山泉有点甜</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kitty.kim/2019/03/18/yuque/ir3uw4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kitty">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kitty Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">WEB前端 盒子模型初识</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T17:55:00+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  WEB前端 盒子模型初识
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a name="5b97da2d"></a></p>
+<h1 id="CSS盒子模型"><a href="#CSS盒子模型" class="headerlink" title="CSS盒子模型"></a>CSS盒子模型</h1><p><a name="59721b7c"></a></p>
+<h2 id="盒子边框（border）"><a href="#盒子边框（border）" class="headerlink" title="盒子边框（border）"></a>盒子边框（border）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border : border-width || border-style || border-color</span><br></pre></td></tr></table></figure>
+<p>边框属性—设置边框样式（border-style）</p>
+<p>边框样式用于定义页面中边框的风格，常用属性值如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">none：没有边框即忽略所有边框的宽度（默认值）</span><br><span class="line"></span><br><span class="line">solid：边框为单实线(最为常用的)</span><br><span class="line"></span><br><span class="line">dashed：边框为虚线  </span><br><span class="line"></span><br><span class="line">dotted：边框为点线</span><br><span class="line"></span><br><span class="line">double：边框为双实线</span><br></pre></td></tr></table></figure>
+<p><a name="f358de9b"></a></p>
+<h3 id="盒子边框写法总结表"><a href="#盒子边框写法总结表" class="headerlink" title="盒子边框写法总结表"></a>盒子边框写法总结表</h3><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设置内容</td>
+<td>样式属性</td>
+<td>常用属性值</td>
+</tr>
+<tr>
+<td>上边框</td>
+<td>border-top-style:样式; border-top-width:宽度;border-top-color:颜色;border-top:宽度 样式 颜色;</td>
+<td></td>
+</tr>
+<tr>
+<td>下边框</td>
+<td>border-bottom-style:样式;border- bottom-width:宽度;border- bottom-color:颜色;border-bottom:宽度 样式 颜色;</td>
+<td></td>
+</tr>
+<tr>
+<td>左边框</td>
+<td>border-left-style:样式; border-left-width:宽度;border-left-color:颜色;border-left:宽度 样式 颜色;</td>
+<td></td>
+</tr>
+<tr>
+<td>右边框</td>
+<td>border-right-style:样式;border-right-width:宽度;border-right-color:颜色;border-right:宽度 样式 颜色;</td>
+<td></td>
+</tr>
+<tr>
+<td>样式综合设置</td>
+<td>border-style:上边 [右边 下边 左边];</td>
+<td>none无（默认）、solid单实线、dashed虚线、dotted点线、double双实线</td>
+</tr>
+<tr>
+<td>宽度综合设置</td>
+<td>border-width:上边 [右边 下边 左边];</td>
+<td>像素值</td>
+</tr>
+<tr>
+<td>颜色综合设置</td>
+<td>border-color:上边 [右边 下边 左边];</td>
+<td>颜色值、#十六进制、rgb(r,g,b)、rgb(r%,g%,b%)</td>
+</tr>
+<tr>
+<td>边框综合设置</td>
+<td>border:四边宽度 四边样式 四边颜色;</td>
+</tr>
+</tbody>
+</table>
+<p><a name="5cf8ca55"></a></p>
+<h3 id="表格的细线边框"><a href="#表格的细线边框" class="headerlink" title="表格的细线边框"></a>表格的细线边框</h3><p>表格线变粗原因是因为边框重叠</p>
+<p>table{ border-collapse:collapse; }  collapse 单词是合并的意思</p>
+<p>border-collapse:collapse; 表示边框合并在一起。</p>
+<p><a name="826aca4e"></a></p>
+<h3 id="圆角边框-CSS3"><a href="#圆角边框-CSS3" class="headerlink" title="圆角边框(CSS3)"></a>圆角边框(CSS3)</h3><p>语法格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 左上角  右上角  右下角  左下角;</span><br></pre></td></tr></table></figure>
+<p>案例:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">		<span class="selector-tag">div</span> &#123;</span><br><span class="line">			<span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">			<span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">			<span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span> &#123;  <span class="comment">/* 结构伪类选择器 选亲兄弟 */</span></span><br><span class="line">			<span class="attribute">border-radius</span>: <span class="number">10px</span>;  <span class="comment">/*  一个数值表示4个角都是相同的 10px 的弧度 */</span> </span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</span><br><span class="line">			<span class="comment">/*border-radius: 100px;    取宽度和高度 一半  则会变成一个圆形 */</span></span><br><span class="line">			<span class="attribute">border-radius</span>: <span class="number">50%</span>;   <span class="comment">/*  100px   50% 取宽度和高度 一半  则会变成一个圆形 */</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(3)</span> &#123;</span><br><span class="line">			<span class="attribute">border-radius</span>: <span class="number">10px</span> <span class="number">40px</span>;  <span class="comment">/* 左上角  和 右下角  是 10px  右上角 左下角 40 对角线 */</span></span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(4)</span> &#123;</span><br><span class="line">			<span class="attribute">border-radius</span>: <span class="number">10px</span> <span class="number">40px</span>  <span class="number">80px</span>;   <span class="comment">/* 左上角 10    右上角  左下角 40   右下角80 */</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(5)</span> &#123;</span><br><span class="line">			<span class="attribute">border-radius</span>: <span class="number">10px</span> <span class="number">40px</span>  <span class="number">80px</span>  <span class="number">100px</span>;   <span class="comment">/* 左上角 10    右上角 40  右下角 80   左下角   右下角100 */</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(6)</span> &#123;</span><br><span class="line">			<span class="attribute">border-radius</span>: <span class="number">100px</span>;  </span><br><span class="line">			<span class="attribute">height</span>: <span class="number">100px</span>; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(7)</span> &#123;</span><br><span class="line">			<span class="attribute">border-radius</span>: <span class="number">100px</span> <span class="number">0</span>;  </span><br><span class="line">		&#125;	</span><br><span class="line">        &lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p><a name="3163018c"></a></p>
+<h2 id="内边距（padding）"><a href="#内边距（padding）" class="headerlink" title="内边距（padding）"></a>内边距（padding）</h2><p>padding属性用于设置内边距。  是指 边框与内容之间的距离。</p>
+<p>padding-top:上内边距</p>
+<p>padding-right:右内边距</p>
+<p>padding-bottom:下内边距</p>
+<p>padding-left:左内边距</p>
+<table>
+<thead>
+<tr>
+<th>值的个数</th>
+<th>表达意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1个值</td>
+<td>padding：上下左右边距 比如padding: 3px; 表示上下左右都是3像素</td>
+</tr>
+<tr>
+<td>2个值</td>
+<td>padding: 上下边距 左右边距 比如 padding: 3px 5px; 表示 上下3像素 左右 5像素</td>
+</tr>
+<tr>
+<td>3个值</td>
+<td>padding：上边距 左右边距 下边距 比如 padding: 3px 5px 10px; 表示 上是3像素 左右是5像素 下是10像素</td>
+</tr>
+<tr>
+<td>4个值</td>
+<td>padding:上内边距 右内边距 下内边距 左内边距 比如: padding: 3px 5px 10px 15px; 表示 上3px 右是5px 下 10px 左15px 顺时针</td>
+</tr>
+</tbody>
+</table>
+<p><a name="34f57d30"></a></p>
+<h2 id="外边距（margin）"><a href="#外边距（margin）" class="headerlink" title="外边距（margin）"></a>外边距（margin）</h2><p>margin属性用于设置外边距。  设置外边距会在元素之间创建“空白”， 这段空白通常不能放置其他内容。</p>
+<p>margin-top:上外边距</p>
+<p>margin-right:右外边距</p>
+<p>margin-bottom:下外边距</p>
+<p>margin-left:上外边距</p>
+<p>margin:上外边距 右外边距  下外边距  左外边</p>
+<p>取值顺序跟内边距相同。</p>
+<p><a name="bd9aeb5a"></a></p>
+<h3 id="外边距实现盒子居中"><a href="#外边距实现盒子居中" class="headerlink" title="外边距实现盒子居中"></a>外边距实现盒子居中</h3><p>可以让一个盒子实现水平居中，需要满足一下两个条件：</p>
+<ol>
+<li>必须是块级元素。</li>
+<li>盒子必须指定了宽度（width）</li>
+</ol>
+<p>然后就给<strong>左右的外边距都设置为auto</strong>，就可使块级元素水平居中。</p>
+<p>实际工作中常用这种方式进行网页布局，示例代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.header&#123; width:960px; margin:0 auto;&#125;</span><br></pre></td></tr></table></figure>
+<p><a name="64478e4f"></a></p>
+<h3 id="文字盒子居中图片和背景区别"><a href="#文字盒子居中图片和背景区别" class="headerlink" title="文字盒子居中图片和背景区别"></a>文字盒子居中图片和背景区别</h3><ol>
+<li>文字水平居中是  text-align: center</li>
+<li>盒子水平居中  左右margin 改为 auto</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">text-align</span>: <span class="selector-tag">center</span>; <span class="comment">/*  文字居中水平 */</span></span><br><span class="line"><span class="selector-tag">margin</span>: 10<span class="selector-tag">px</span> <span class="selector-tag">auto</span>;  <span class="comment">/* 盒子水平居中  左右margin 改为 auto 就阔以了 */</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>插入图片 我们用的最多 比如产品展示类</li>
+<li>背景图片我们一般用于小图标背景 或者 超大背景图片</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">img</span> &#123;  </span><br><span class="line">		<span class="attribute">width</span>: <span class="number">200px</span>;<span class="comment">/* 插入图片更改大小 width 和 height */</span></span><br><span class="line">		<span class="attribute">height</span>: <span class="number">210px</span>;</span><br><span class="line">		<span class="attribute">margin-top</span>: <span class="number">30px</span>;  <span class="comment">/* 插入图片更改位置 可以用margin 或padding  盒模型 */</span></span><br><span class="line">		<span class="attribute">margin-left</span>: <span class="number">50px</span>; <span class="comment">/* 插入当图片也是一个盒子 */</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">aside</span> &#123;</span><br><span class="line">		<span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">		<span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">		<span class="attribute">border</span>: <span class="number">1px</span> solid purple;</span><br><span class="line">		<span class="attribute">background</span>: <span class="number">#fff</span> <span class="built_in">url</span>(images/sun.jpg) no-repeat;</span><br><span class="line">	</span><br><span class="line">		<span class="attribute">background-size</span>: <span class="number">200px</span> <span class="number">210px</span>; <span class="comment">/*  背景图片更改大小只能用 background-size */</span></span><br><span class="line">		<span class="attribute">background-position</span>: <span class="number">30px</span> <span class="number">50px</span>; <span class="comment">/* 背景图片更该位置 我用 background-position */</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><a name="fa1b7274"></a></p>
+<h3 id="清除元素的默认内外边距-兼容浏览器"><a href="#清除元素的默认内外边距-兼容浏览器" class="headerlink" title="清除元素的默认内外边距(兼容浏览器)"></a>清除元素的默认内外边距(兼容浏览器)</h3><p>为了更方便地控制网页中的元素，制作网页时，可使用如下代码清除元素的默认内外边距：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">   <span class="attribute">padding</span>:<span class="number">0</span>;         <span class="comment">/* 清除内边距 */</span></span><br><span class="line">   <span class="attribute">margin</span>:<span class="number">0</span>;          <span class="comment">/* 清除外边距 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：  行内元素是只有左右外边距的，是没有上下外边距的。 内边距，在ie6等低版本浏览器也会有问题。</p>
+<p>我们尽量不要给行内元素指定上下的内外边距就好了。</p>
+<p><a name="48880533"></a></p>
+<h2 id="外边距合并"><a href="#外边距合并" class="headerlink" title="外边距合并"></a>外边距合并</h2><p>使用margin定义块元素的垂直外边距时，可能会出现外边距的合并。</p>
+<p><a name="a8b820de"></a></p>
+<h3 id="相邻块元素垂直外边距的合并"><a href="#相邻块元素垂直外边距的合并" class="headerlink" title="相邻块元素垂直外边距的合并"></a>相邻块元素垂直外边距的合并</h3><p>当上下相邻的两个块元素相遇时，如果上面的元素有下外边距margin-bottom，下面的元素有上外边距margin-top，则他们之间的垂直间距不是margin-bottom与margin-top之和，而是两者中的较大者。这种现象被称为相邻块元素垂直外边距的合并（也称外边距塌陷）。</p>
+<p>解决方案：  避免就好了。</p>
+<p><a name="890bf71c"></a></p>
+<h3 id="嵌套块元素垂直外边距的合并"><a href="#嵌套块元素垂直外边距的合并" class="headerlink" title="嵌套块元素垂直外边距的合并"></a>嵌套块元素垂直外边距的合并</h3><p>对于两个嵌套关系的块元素，如果父元素没有上内边距及边框，则父元素的上外边距会与子元素的上外边距发生合并，合并后的外边距为两者中的较大者，即使父元素的上外边距为0，也会发生合并。</p>
+<p>解决方案：</p>
+<ol>
+<li>可以为父元素定义1像素的上边框或上内边距。</li>
+<li>可以为父元素添加overflow:hidden。</li>
+</ol>
+<p>待续。。。。</p>
+<p><a name="6db19a80"></a></p>
+<h2 id="content宽度和高度"><a href="#content宽度和高度" class="headerlink" title="content宽度和高度"></a>content宽度和高度</h2><p>使用宽度属性width和高度属性height可以对盒子的大小进行控制。</p>
+<p>width和height的属性值可以为不同单位的数值或相对于父元素的百分比%，实际工作中最常用的是像素值。</p>
+<p>大多数浏览器，如Firefox、IE6及以上版本都采用了W3C规范，符合CSS规范的盒子模型的总宽度和总高度的计算原则是：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*外盒尺寸计算（元素空间尺寸）*/</span></span><br><span class="line">  Element空间高度 = content height + padding + border + margin</span><br><span class="line">  Element 空间宽度 = content width + padding + border + margin</span><br><span class="line">  <span class="comment">/*内盒尺寸计算（元素实际大小）*/</span></span><br><span class="line">  Element Height = content height + padding + border （Height为内容高度）</span><br><span class="line">  Element Width = content width + padding + border （Width为内容宽度）</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<p>1、宽度属性width和高度属性height仅适用于块级元素，对行内元素无效（ img 标签和 input除外）。</p>
+<p>2、计算盒子模型的总高度时，还应考虑上下两个盒子垂直外边距合并的情况。</p>
+<p>3、<strong>如果一个盒子没有给定宽度/高度或者继承父亲的宽度/高度，则padding 不会影响本盒子大小</strong>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WEB/" rel="tag"># WEB</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/18/yuque/whdmw7/" rel="next" title="RSA+AES请求组合加密">
+                <i class="fa fa-chevron-left"></i> RSA+AES请求组合加密
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/18/yuque/oxz24f/" rel="prev" title="WEB前端 CSS选择器">
+                WEB前端 CSS选择器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="kitty">
+            
+              <p class="site-author-name" itemprop="name">kitty</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lemonL" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lemon@luo.bo" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/1930682997" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="Test" target="_blank">Test</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS盒子模型"><span class="nav-number">1.</span> <span class="nav-text">CSS盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒子边框（border）"><span class="nav-number">1.1.</span> <span class="nav-text">盒子边框（border）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#盒子边框写法总结表"><span class="nav-number">1.1.1.</span> <span class="nav-text">盒子边框写法总结表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格的细线边框"><span class="nav-number">1.1.2.</span> <span class="nav-text">表格的细线边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#圆角边框-CSS3"><span class="nav-number">1.1.3.</span> <span class="nav-text">圆角边框(CSS3)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内边距（padding）"><span class="nav-number">1.2.</span> <span class="nav-text">内边距（padding）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外边距（margin）"><span class="nav-number">1.3.</span> <span class="nav-text">外边距（margin）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#外边距实现盒子居中"><span class="nav-number">1.3.1.</span> <span class="nav-text">外边距实现盒子居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字盒子居中图片和背景区别"><span class="nav-number">1.3.2.</span> <span class="nav-text">文字盒子居中图片和背景区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除元素的默认内外边距-兼容浏览器"><span class="nav-number">1.3.3.</span> <span class="nav-text">清除元素的默认内外边距(兼容浏览器)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外边距合并"><span class="nav-number">1.4.</span> <span class="nav-text">外边距合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相邻块元素垂直外边距的合并"><span class="nav-number">1.4.1.</span> <span class="nav-text">相邻块元素垂直外边距的合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套块元素垂直外边距的合并"><span class="nav-number">1.4.2.</span> <span class="nav-text">嵌套块元素垂直外边距的合并</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#content宽度和高度"><span class="nav-number">1.5.</span> <span class="nav-text">content宽度和高度</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kitty</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

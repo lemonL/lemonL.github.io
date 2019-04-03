@@ -257,6 +257,643 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kitty.kim/2019/03/18/yuque/bzavq1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kitty">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kitty Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/yuque/bzavq1/" itemprop="url">Kotlin基本数据类型</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T17:51:53+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a name="8a276886"></a></p>
+<h1 id="Kotlin数据类型"><a href="#Kotlin数据类型" class="headerlink" title="Kotlin数据类型"></a>Kotlin数据类型</h1><table>
+<thead>
+<tr>
+<th>type</th>
+<th>Bit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Double</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Short</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Byte</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p><a name="4056a7ee"></a></p>
+<h2 id="Kotlin八大数组类型"><a href="#Kotlin八大数组类型" class="headerlink" title="Kotlin八大数组类型"></a>Kotlin八大数组类型</h2><table>
+<thead>
+<tr>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CharArray</td>
+</tr>
+<tr>
+<td>ByteArray</td>
+</tr>
+<tr>
+<td>ShortArray</td>
+</tr>
+<tr>
+<td>IntArray</td>
+</tr>
+<tr>
+<td>FloatArray</td>
+</tr>
+<tr>
+<td>DoubleArray</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">常量 定义：val FINAL_HELLO_WORLD: String = <span class="string">"Hello World"</span>  <span class="comment">//val</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量定义：<span class="keyword">var</span> text: String = hello  <span class="comment">//var</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text: <span class="built_in">String</span>? = helloWorld   <span class="comment">//String 类型</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val textArray: <span class="built_in">Array</span>&lt;Char&gt; = arrayOf(<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'W'</span>, <span class="string">'o'</span>, <span class="string">'r'</span>, <span class="string">'l'</span>, <span class="string">'d'</span>)   <span class="comment">// Char 字符数组</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val helloWorldCharArray: CharArray = charArrayOf(<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'W'</span>, <span class="string">'o'</span>, <span class="string">'r'</span>, <span class="string">'l'</span>, <span class="string">'d'</span>)  <span class="comment">//Kotlin 类型的字符数组</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val helloWorldLength: Int = helloWorld.length  <span class="comment">//字符长度 int类型</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val helloWorldLengthLong: Long = helloWorldLength.toLong()  <span class="comment">//字符长度转换为Long 类型</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kitty.kim/2019/03/18/yuque/ugsunf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kitty">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kitty Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/yuque/ugsunf/" itemprop="url">const与基本数据类型</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T17:51:36+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a name="04d4332e"></a></p>
+<h1 id="const修饰符"><a href="#const修饰符" class="headerlink" title="const修饰符"></a>const修饰符</h1><p><a name="8a84cc7e"></a></p>
+<h2 id="const与基本数据类型"><a href="#const与基本数据类型" class="headerlink" title="const与基本数据类型"></a>const与基本数据类型</h2><p>const int x=3； //常量</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量名</th>
+<th style="text-align:center">存储地址</th>
+<th style="text-align:center">存储内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:center">&amp;x</td>
+<td style="text-align:center">3（不可更改的值）</td>
+</tr>
+</tbody>
+</table>
+<p><a name="a72ccb57"></a></p>
+<h2 id="const与指针类型"><a href="#const与指针类型" class="headerlink" title="const与指针类型"></a>const与指针类型</h2><blockquote>
+<p>对号 代表等价</p>
+</blockquote>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> const int *p =NULL ；</li>
+<li style="list-style: none"><input type="checkbox" checked> int const *p=NuLL;</li>
+<li style="list-style: none"><input type="checkbox"> int* const p=NULL；</li>
+<li style="list-style: none"><input type="checkbox" checked> const int* const p=NULL;</li>
+<li style="list-style: none"><input type="checkbox" checked> int const* const p=NULL;</li>
+</ul>
+<p>例子：</p>
+<p><code>int x=3; const int *p=&amp;x;</code></p>
+<p><code>p=&amp;y;正确 *p=4；错误</code></p>
+<p>因为const修饰的是_p而不是p，所以p可以更改值，而 _p不能更改值。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量名</th>
+<th style="text-align:center">存储地址</th>
+<th style="text-align:center">存储内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:center">&amp;x</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">p</td>
+<td style="text-align:center">&amp;p</td>
+<td style="text-align:center">&amp;x</td>
+</tr>
+</tbody>
+</table>
+<p><code>const修饰符修饰谁，谁就不能变。</code></p>
+<p><a name="1f9cfa6f"></a></p>
+<h2 id="内存的申请和释放"><a href="#内存的申请和释放" class="headerlink" title="内存的申请和释放"></a>内存的申请和释放</h2><p>申请内存运算符</p>
+<p>关键词 new detle</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kitty.kim/2019/03/18/yuque/qbu9z0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kitty">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kitty Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/yuque/qbu9z0/" itemprop="url">Git命令</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T17:49:54+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><strong>生成ssh私钥</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --list //查看当前全局配置</span><br><span class="line">$ git config --global user.name &quot;用户名&quot;</span><br><span class="line">$ git config --global user.email &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>生成ssh密钥：</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C “邮箱”</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>克隆项目</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kitty.kim/2019/03/18/yuque/fqaa2q/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kitty">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kitty Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/yuque/fqaa2q/" itemprop="url">C++ RTTI</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T17:49:02+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>RTTI（Run-Time Type Identification)运行时类型识别，类似JAVA中的多态</p>
+<blockquote>
+<p>父类接口类：</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>=<span class="number">0</span>;</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>=<span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>子类实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//继承并实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> :</span> <span class="keyword">public</span> Person &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">Study</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> :</span> <span class="keyword">public</span> Person &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//.cpp 实现</span></span><br><span class="line"><span class="keyword">void</span> Teacher::run() &#123;</span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"Teacher::run()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> Teacher::eat() &#123;</span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"Teacher::eat()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> Teacher::Study() &#123;</span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"Teacher::Study()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> Student::run() &#123;</span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"Student::run()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> Student::eat() &#123;</span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"Student::eat()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> Student::play() &#123;</span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"Student::play()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(Person *obj)</span> </span>&#123;</span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(*obj).name() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">   obj-&gt;run();</span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">typeid</span>(*obj) == <span class="keyword">typeid</span>(Student)) &#123;</span><br><span class="line">       Student *student = <span class="keyword">dynamic_cast</span>&lt;Student *&gt;(obj);</span><br><span class="line">       student-&gt;play();</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">typeid</span>(*obj) == <span class="keyword">typeid</span>(Teacher)) &#123;</span><br><span class="line">       Teacher *teacher = <span class="keyword">dynamic_cast</span>&lt;Teacher *&gt;(obj);</span><br><span class="line">       teacher-&gt;Study();</span><br><span class="line">   &#125;</span><br><span class="line">   obj-&gt;eat();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   Student student;</span><br><span class="line">   Test(&amp;student);</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">7Student</span><br><span class="line">Student::run()</span><br><span class="line">Student::play()</span><br><span class="line">Student::eat()</span><br></pre></td></tr></table></figure>
+<p>类型转换：</p>
+<blockquote>
+<p>如果子类必须含有虚函数，否则不是多态，其次，必须事引用和指针才能类型转换<br>如下：</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类去掉纯虚函数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子类没有虚函数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> :</span> <span class="keyword">public</span> Person &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   Person *person = <span class="keyword">new</span> Student();</span><br><span class="line">   <span class="comment">//子类必须含有虚函数，否则不是多态。其次，必须是引用和指针才能类型转换</span></span><br><span class="line">   Student *s = <span class="keyword">dynamic_cast</span>&lt;Student *&gt;(person); <span class="comment">//直接报错，错误原因是：person 不是多态类型</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://kitty.kim/2019/03/18/yuque/dggnmz/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,14 +964,47 @@
 
       
         
-          C++ STL标准模板库
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/yuque/dggnmz/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p><a name="be282fff"></a></p>
+<h1 id="C-STL（标准模板库）"><a href="#C-STL（标准模板库）" class="headerlink" title="C++ STL（标准模板库）"></a>C++ STL（标准模板库）</h1><blockquote>
+<p>C++ STL（标准模板库）是一套功能强大的 C++ 模板类，提供了通用的模板类和函数，这些模板类和函数可以实现多种流行和常用的算法和数据结构，如向量、链表、队列、栈。</p>
+</blockquote>
+<p>C++ 标准模板库的核心包括以下三个组件：</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>容器（Containers）</td>
+<td>容器是用来管理某一类对象的集合。C++ 提供了各种不同类型的容器，比如 deque、list、vector、map 等。</td>
+</tr>
+<tr>
+<td>算法（Algorithms）</td>
+<td>算法作用于容器。它们提供了执行各种操作的方式，包括对容器内容执行初始化、排序、搜索和转换等操作。</td>
+</tr>
+<tr>
+<td>迭代器（iterators）</td>
+<td>迭代器用于遍历对象集合的元素。这些集合可能是容器，也可能是容器的子集。</td>
+</tr>
+</tbody>
+</table>
+<p>例子:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="comment">// 创建一个向量存储 int</span></span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec; </span><br><span class="line">   <span class="keyword">int</span> i;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// 显示 vec 的原始大小</span></span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"vector size = "</span> &lt;&lt; vec.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// 推入 5 个值到向量中</span></span><br><span class="line">   <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">      vec.push_back(i);</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// 显示 vec 扩展后的大小</span></span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"extended vector size = "</span> &lt;&lt; vec.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// 访问向量中的 5 个值</span></span><br><span class="line">   <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"value of vec ["</span> &lt;&lt; i &lt;&lt; <span class="string">"] = "</span> &lt;&lt; vec[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// 使用迭代器 iterator 访问值</span></span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator v = vec.begin();</span><br><span class="line">   <span class="keyword">while</span>( v != vec.end()) &#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"value of v = "</span> &lt;&lt; *v &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">      v++;</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vector size = 0</span><br><span class="line">extended vector size = 5</span><br><span class="line">value of vec [0] = 0</span><br><span class="line">value of vec [1] = 1</span><br><span class="line">value of vec [2] = 2</span><br><span class="line">value of vec [3] = 3</span><br><span class="line">value of vec [4] = 4</span><br><span class="line">value of v = 0</span><br><span class="line">value of v = 1</span><br><span class="line">value of v = 2</span><br><span class="line">value of v = 3</span><br><span class="line">value of v = 4</span><br></pre></td></tr></table></figure>
+<p>关于上面实例中所使用的各种函数，有几点要注意：</p>
+<ul>
+<li>push_back( ) 成员函数在向量的末尾插入值，如果有必要会扩展向量的大小。</li>
+<li>size( ) 函数显示向量的大小。</li>
+<li>begin( ) 函数返回一个指向向量开头的迭代器。</li>
+<li>end( ) 函数返回一个指向向量末尾的迭代器。</li>
+</ul>
+
+          
         
       
     </div>
@@ -451,14 +1121,14 @@
 
       
         
-          C++ 模板函数
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/yuque/qkf8tp/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p><a name="f288c32f"></a></p>
+<h1 id="C-模板函数"><a href="#C-模板函数" class="headerlink" title="C++模板函数"></a>C++模板函数</h1><blockquote>
+<p>类似JAVA中的泛型，可以实例化多种参数类型的模板</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>  T&gt; <span class="comment">//typename 和 class 都是一样的</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">(T a)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>  &lt;<span class="keyword">typename</span> T,<span class="class"><span class="keyword">class</span> <span class="title">S</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">display</span>(<span class="title">T</span> <span class="title">t</span>,<span class="title">S</span> <span class="title">s</span>)&#123;</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;t&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>  T, <span class="keyword">int</span> Ksize&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">(T a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Ksize; ++i) &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//    display&lt;int&gt;(10.89); //显示调用</span></span><br><span class="line">    display(<span class="number">10</span>,<span class="number">29.2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -575,14 +1245,20 @@
 
       
         
-          C++ 虚函数
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/yuque/rzuyu3/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p><a name="32938275"></a></p>
+<h1 id="C-虚函数"><a href="#C-虚函数" class="headerlink" title="C++虚函数"></a>C++虚函数</h1><blockquote>
+<p>父类函数不加virtual关键词，子类继承后，当父类指针指向子类指针，同样的函数，会执行父类的函数。子类的函数实际是被隐藏了，如果用子类的指针指向自己的话，是能够执行的。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * C++多态 虚函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Shape();</span><br><span class="line"></span><br><span class="line">    ~Shape();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calcArea</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> :</span> <span class="keyword">public</span> Shape &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Circle(<span class="keyword">double</span> r);</span><br><span class="line"></span><br><span class="line">    ~Circle();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calcArea</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">double</span> m_dR;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="built_in">string</span> m_strName;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rect</span> :</span> <span class="keyword">public</span> Shape &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Rect(<span class="keyword">double</span> width, <span class="keyword">double</span> height);</span><br><span class="line"></span><br><span class="line">    ~Rect();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calcArea</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">double</span> m_dWidth;</span><br><span class="line">    <span class="keyword">double</span> m_dHeight;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Rect::Rect(<span class="keyword">double</span> width, <span class="keyword">double</span> height) &#123;</span><br><span class="line">    m_dHeight = height;</span><br><span class="line">    m_dWidth = width;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Rect::Rect()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> Rect::calcArea() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Rect::calcArea()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> m_dWidth*m_dHeight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Rect::~Rect() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Rect()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle::Circle(<span class="keyword">double</span> r) &#123;</span><br><span class="line">    m_dR = r;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Circle()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> Circle::calcArea() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Circle::calcArea()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span> * m_dR * m_dR;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle::~Circle() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Circle()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Shape::Shape() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Shape()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Shape::~Shape() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Shape()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> Shape::calcArea() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Shape::clacArea()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Shape *shape=<span class="keyword">new</span> Rect(<span class="number">3</span>,<span class="number">6</span>);</span><br><span class="line">    Shape *shape1=<span class="keyword">new</span> Circle(<span class="number">5</span>);</span><br><span class="line">    shape-&gt;calcArea();</span><br><span class="line">    shape1-&gt;calcArea();</span><br><span class="line">    <span class="keyword">delete</span>(shape);</span><br><span class="line">    <span class="keyword">delete</span>(shape1);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行的结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Shape()</span><br><span class="line">Rect::Rect()</span><br><span class="line">Shape()</span><br><span class="line">Circle()</span><br><span class="line">Shape::clacArea() //父类的方法</span><br><span class="line">Shape::clacArea() //父类的方法</span><br><span class="line">~Shape()</span><br><span class="line">~Shape()</span><br></pre></td></tr></table></figure>
+<p><a name="b95e70aa"></a></p>
+<h2 id="加上virtual关键词后"><a href="#加上virtual关键词后" class="headerlink" title="加上virtual关键词后"></a>加上virtual关键词后</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * C++多态 虚函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Shape();</span><br><span class="line"></span><br><span class="line">    ~Shape();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">calcArea</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//虚继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> :</span> <span class="keyword">public</span> Shape &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Circle(<span class="keyword">double</span> r);</span><br><span class="line"></span><br><span class="line">    ~Circle();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calcArea</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">double</span> m_dR;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="built_in">string</span> m_strName;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//虚继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rect</span> :</span> <span class="keyword">public</span> Shape &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Rect(<span class="keyword">double</span> width, <span class="keyword">double</span> height);</span><br><span class="line"></span><br><span class="line">    ~Rect();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calcArea</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">double</span> m_dWidth;</span><br><span class="line">    <span class="keyword">double</span> m_dHeight;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Rect::Rect(<span class="keyword">double</span> width, <span class="keyword">double</span> height) &#123;</span><br><span class="line">    m_dHeight = height;</span><br><span class="line">    m_dWidth = width;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Rect::Rect()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> Rect::calcArea() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Rect::calcArea()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> m_dWidth*m_dHeight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Rect::~Rect() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Rect()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle::Circle(<span class="keyword">double</span> r) &#123;</span><br><span class="line">    m_dR = r;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Circle()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> Circle::calcArea() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Circle::calcArea()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span> * m_dR * m_dR;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle::~Circle() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Circle()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Shape::Shape() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Shape()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Shape::~Shape() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Shape()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> Shape::calcArea() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Shape::clacArea()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Shape *shape=<span class="keyword">new</span> Rect(<span class="number">3</span>,<span class="number">6</span>);</span><br><span class="line">    Shape *shape1=<span class="keyword">new</span> Circle(<span class="number">5</span>);</span><br><span class="line">    shape-&gt;calcArea();</span><br><span class="line">    shape1-&gt;calcArea();</span><br><span class="line">    <span class="keyword">delete</span>(shape);</span><br><span class="line">    <span class="keyword">delete</span>(shape1);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Shape()</span><br><span class="line">Rect::Rect()</span><br><span class="line">Shape()</span><br><span class="line">Circle()</span><br><span class="line">Rect::calcArea() //子类自己的函数</span><br><span class="line">Circle::calcArea()//子类自己的函数</span><br><span class="line">~Shape()</span><br><span class="line">~Shape()</span><br></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -699,14 +1375,25 @@
 
       
         
-          C++ 虚析构函数
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/yuque/yk01ls/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p><a name="f41bd17f"></a></p>
+<h1 id="C-虚析构函数"><a href="#C-虚析构函数" class="headerlink" title="C++虚析构函数"></a>C++虚析构函数</h1><blockquote>
+<p>防止内存泄露<br>子类继承父类后，在子类构造函数里，通过new 来生成一个对象实例<br>在析构函数里执行释放内存操作，如果父类不加上virtual 关键词<br>则子类执行的是父类的析构函数，不执行自己的析构函数。</p>
+</blockquote>
+<p>父类不加virtual  子类继承后，并执行析构函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * C++多态 虚析构函数 （防止内存泄露）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//形状</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Shape();</span><br><span class="line"></span><br><span class="line">    ~Shape();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">calcArea</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Coordinate</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Coordinate(<span class="keyword">int</span> x, <span class="keyword">int</span> y);</span><br><span class="line"></span><br><span class="line">    ~Coordinate();</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">int</span> m_iX;</span><br><span class="line">    <span class="keyword">int</span> m_iY;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Circle继承Shape</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> :</span> <span class="keyword">public</span> Shape &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Circle(<span class="keyword">double</span> r);</span><br><span class="line"></span><br><span class="line">    ~Circle();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calcArea</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">double</span> m_dR;</span><br><span class="line">    Coordinate *coordinate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="built_in">string</span> m_strName;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Rect继承Shape</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rect</span> :</span> <span class="keyword">public</span> Shape &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Rect(<span class="keyword">double</span> width, <span class="keyword">double</span> height);</span><br><span class="line"></span><br><span class="line">    ~Rect();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calcArea</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">double</span> m_dWidth;</span><br><span class="line">    <span class="keyword">double</span> m_dHeight;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Coordinate::Coordinate(<span class="keyword">int</span> x, <span class="keyword">int</span> y) &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Coordinate()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    m_iX = x;</span><br><span class="line">    m_iY = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Coordinate::~Coordinate() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Coordinate()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Rect::Rect(<span class="keyword">double</span> width, <span class="keyword">double</span> height) &#123;</span><br><span class="line">    m_dHeight = height;</span><br><span class="line">    m_dWidth = width;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Rect::Rect()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> Rect::calcArea() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Rect::calcArea()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> m_dWidth * m_dHeight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Rect::~Rect() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Rect()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle::Circle(<span class="keyword">double</span> r) &#123;</span><br><span class="line">    m_dR = r;</span><br><span class="line">    coordinate=<span class="keyword">new</span> Coordinate(<span class="number">5</span>,<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Circle()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> Circle::calcArea() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Circle::calcArea()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span> * m_dR * m_dR;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle::~Circle() &#123;</span><br><span class="line">    <span class="keyword">delete</span>(coordinate);<span class="comment">//释放内存</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Circle()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Shape::Shape() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Shape()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Shape::~Shape() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Shape()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> Shape::calcArea() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Shape::clacArea()"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Shape *shape = <span class="keyword">new</span> Rect(<span class="number">3</span>, <span class="number">6</span>);</span><br><span class="line">    Shape *shape1 = <span class="keyword">new</span> Circle(<span class="number">5</span>);</span><br><span class="line">    shape-&gt;calcArea();</span><br><span class="line">    shape1-&gt;calcArea();</span><br><span class="line">    <span class="keyword">delete</span> (shape); <span class="comment">//释放内存</span></span><br><span class="line">    <span class="keyword">delete</span> (shape1);<span class="comment">//释放内存</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Shape()</span><br><span class="line">Rect::Rect()</span><br><span class="line">Shape()</span><br><span class="line">Coordinate()</span><br><span class="line">Circle()</span><br><span class="line">Rect::calcArea()</span><br><span class="line">Circle::calcArea()</span><br><span class="line">~Shape()	//父类析构被执行了两次</span><br><span class="line">~Shape()	//父类析构被执行了两次</span><br></pre></td></tr></table></figure>
+<p>父类加上virtual关键词后，子类执行析构函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Shape();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">virtual</span> ~Shape();	<span class="comment">//父类加上virtual</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">calcArea</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Shape()</span><br><span class="line">Rect::Rect()</span><br><span class="line">Shape()</span><br><span class="line">Coordinate()</span><br><span class="line">Circle()</span><br><span class="line">Rect::calcArea()</span><br><span class="line">Circle::calcArea()</span><br><span class="line">~Rect()		//子类析构函数被执行</span><br><span class="line">~Shape()</span><br><span class="line">~Coordinate() //子类析构函数被执行</span><br><span class="line">~Circle()	//子类析构函数被执行</span><br><span class="line">~Shape()</span><br></pre></td></tr></table></figure>
+<p><a name="493ba8c6"></a></p>
+<h2 id="virtual关键词限制"><a href="#virtual关键词限制" class="headerlink" title="virtual关键词限制"></a>virtual关键词限制</h2><p>1.普通函数不能被修饰（类外面单独提供的方法）</p>
+<p>2.静态成员不能被修饰</p>
+<p>3.内联函数不能被修饰（会导致内联函数失效）</p>
+
+          
         
       
     </div>
@@ -823,14 +1510,17 @@
 
       
         
-          C++ 友元
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/yuque/xcz284/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p><a name="864b1559"></a></p>
+<h1 id="C-友元"><a href="#C-友元" class="headerlink" title="C++友元"></a>C++友元</h1><p><a name="721f3b13"></a></p>
+<h2 id="友元函数："><a href="#友元函数：" class="headerlink" title="友元函数："></a>友元函数：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Time</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="keyword">void</span> <span class="title">printTime</span><span class="params">(Time &amp;t)</span></span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Time(<span class="keyword">int</span> hour, <span class="keyword">int</span> min, <span class="keyword">int</span> sec);</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> m_hour;</span><br><span class="line">    <span class="keyword">int</span> m_min;</span><br><span class="line">    <span class="keyword">int</span> m_sec;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Time::Time(<span class="keyword">int</span> hour, <span class="keyword">int</span> min, <span class="keyword">int</span> sec) &#123;</span><br><span class="line">    m_hour=hour;</span><br><span class="line">    m_min=min;</span><br><span class="line">    m_sec=sec;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printTime</span><span class="params">(Time &amp;t)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt;t.m_hour&lt;&lt;<span class="string">":"</span>&lt;&lt;t.m_min&lt;&lt;<span class="string">":"</span>&lt;&lt;t.m_sec&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Time <span class="title">t</span><span class="params">(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span> </span>;</span><br><span class="line">    printTime(t);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a name="8c539cf6"></a></p>
+<h2 id="友元类"><a href="#友元类" class="headerlink" title="友元类"></a>友元类</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;typeinfo&gt;</span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 友元函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Match</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Time</span> &#123;</span></span><br><span class="line">    <span class="keyword">friend</span> Match;<span class="comment">//友元类的声明</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Time(<span class="keyword">int</span> hour, <span class="keyword">int</span> min, <span class="keyword">int</span> sec);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printTime</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> m_hour;</span><br><span class="line">    <span class="keyword">int</span> m_min;</span><br><span class="line">    <span class="keyword">int</span> m_sec;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Match</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Match(<span class="keyword">int</span> hour, <span class="keyword">int</span> min, <span class="keyword">int</span> sec);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testTime</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Time m_timer;</span><br><span class="line">    <span class="keyword">int</span> m_hour;</span><br><span class="line">    <span class="keyword">int</span> m_min;</span><br><span class="line">    <span class="keyword">int</span> m_sec;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Time::Time(<span class="keyword">int</span> hour, <span class="keyword">int</span> min, <span class="keyword">int</span> sec) &#123;</span><br><span class="line">    m_hour = hour;</span><br><span class="line">    m_min = min;</span><br><span class="line">    m_sec = sec;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Time::printTime() &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; m_hour &lt;&lt; <span class="string">":"</span> &lt;&lt; m_min &lt;&lt; <span class="string">":"</span> &lt;&lt; m_sec &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Match::Match(<span class="keyword">int</span> hour, <span class="keyword">int</span> min, <span class="keyword">int</span> sec) : m_timer(hour, min, sec) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Match::testTime() &#123;</span><br><span class="line">    m_timer.printTime();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; m_hour &lt;&lt; <span class="string">":"</span> &lt;&lt; m_min &lt;&lt; <span class="string">":"</span> &lt;&lt; m_sec &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Match <span class="title">m</span><span class="params">(<span class="number">5</span>, <span class="number">43</span>, <span class="number">33</span>)</span></span>;</span><br><span class="line">    m.testTime();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -947,510 +1637,17 @@
 
       
         
-          C++ 运算符重载
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/yuque/cson21/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kitty.kim/2019/03/18/yuque/cnuhh0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kitty">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kitty Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/18/yuque/cnuhh0/" itemprop="url">C++ 类模板</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T17:43:09+08:00">
-                2019-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
+          
+            <p><a name="bf912185"></a></p>
+<h1 id="C-运算符重载"><a href="#C-运算符重载" class="headerlink" title="C++ 运算符重载"></a>C++ 运算符重载</h1><blockquote>
+<p>运算符重载关键词<code>operator</code><br>相当于可以把运算符 重新定义为新的运算逻辑，例如之前的+ 号可以 运算int类型<br>如果重载这个+号，可以实现两个对象相加。</p>
+</blockquote>
+<p>例子一：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//.h 声明</span></span><br><span class="line"><span class="comment">//纯虚函数 只是头文件 没有cpp，没有实现类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line">    <span class="keyword">friend</span>  Person &amp;<span class="keyword">operator</span>-(Person &amp;p); <span class="comment">//友元运算符重载</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Person(<span class="keyword">int</span> x ,<span class="keyword">int</span> y);</span><br><span class="line"><span class="comment">//    Person &amp;operator-();//运算符重载</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> m_iX;</span><br><span class="line">    <span class="keyword">int</span> m_iY;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//cpp  这叫定义</span></span><br><span class="line">Person::Person(<span class="keyword">int</span> x, <span class="keyword">int</span> y) &#123;</span><br><span class="line">    m_iX=x;</span><br><span class="line">    m_iY=y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> Person::getX() &#123;</span><br><span class="line">    <span class="keyword">return</span> m_iX;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> Person::getY() &#123;</span><br><span class="line">    <span class="keyword">return</span> m_iY;</span><br><span class="line">&#125;</span><br><span class="line">Person&amp; <span class="keyword">operator</span>-(Person &amp;p) &#123;</span><br><span class="line">    p.m_iY=-p.m_iY;</span><br><span class="line">    p.m_iX=-p.m_iX;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运算符重载</span></span><br><span class="line"><span class="comment">//Person&amp; Person::operator-() &#123;</span></span><br><span class="line"><span class="comment">//    this-&gt;m_iX=-(this-&gt;m_iX);</span></span><br><span class="line"><span class="comment">//    m_iY=-m_iY;</span></span><br><span class="line"><span class="comment">//    return  *this;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Person <span class="title">p</span><span class="params">(<span class="number">1</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;p.getY()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;p.getX()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    -p;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;p.getY()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;p.getX()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例子二：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">include &lt;iostream&gt;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line"> </span><br><span class="line">      <span class="function"><span class="keyword">double</span> <span class="title">getVolume</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> length * breadth * height;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">void</span> <span class="title">setLength</span><span class="params">( <span class="keyword">double</span> len )</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          length = len;</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">      <span class="function"><span class="keyword">void</span> <span class="title">setBreadth</span><span class="params">( <span class="keyword">double</span> bre )</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          breadth = bre;</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">      <span class="function"><span class="keyword">void</span> <span class="title">setHeight</span><span class="params">( <span class="keyword">double</span> hei )</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          height = hei;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 重载 + 运算符，用于把两个 Box 对象相加</span></span><br><span class="line">      Box <span class="keyword">operator</span>+(<span class="keyword">const</span> Box&amp; b)</span><br><span class="line">      &#123;</span><br><span class="line">         Box box;</span><br><span class="line">         box.length = <span class="keyword">this</span>-&gt;length + b.length;</span><br><span class="line">         box.breadth = <span class="keyword">this</span>-&gt;breadth + b.breadth;</span><br><span class="line">         box.height = <span class="keyword">this</span>-&gt;height + b.height;</span><br><span class="line">         <span class="keyword">return</span> box;</span><br><span class="line">      &#125;</span><br><span class="line">   <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">double</span> length;      <span class="comment">// 长度</span></span><br><span class="line">      <span class="keyword">double</span> breadth;     <span class="comment">// 宽度</span></span><br><span class="line">      <span class="keyword">double</span> height;      <span class="comment">// 高度</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 程序的主函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   Box Box1;                <span class="comment">// 声明 Box1，类型为 Box</span></span><br><span class="line">   Box Box2;                <span class="comment">// 声明 Box2，类型为 Box</span></span><br><span class="line">   Box Box3;                <span class="comment">// 声明 Box3，类型为 Box</span></span><br><span class="line">   <span class="keyword">double</span> volume = <span class="number">0.0</span>;     <span class="comment">// 把体积存储在该变量中</span></span><br><span class="line"> </span><br><span class="line">   <span class="comment">// Box1 详述</span></span><br><span class="line">   Box1.setLength(<span class="number">6.0</span>); </span><br><span class="line">   Box1.setBreadth(<span class="number">7.0</span>); </span><br><span class="line">   Box1.setHeight(<span class="number">5.0</span>);</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// Box2 详述</span></span><br><span class="line">   Box2.setLength(<span class="number">12.0</span>); </span><br><span class="line">   Box2.setBreadth(<span class="number">13.0</span>); </span><br><span class="line">   Box2.setHeight(<span class="number">10.0</span>);</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// Box1 的体积</span></span><br><span class="line">   volume = Box1.getVolume();</span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"Volume of Box1 : "</span> &lt;&lt; volume &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// Box2 的体积</span></span><br><span class="line">   volume = Box2.getVolume();</span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"Volume of Box2 : "</span> &lt;&lt; volume &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// 把两个对象相加，得到 Box3</span></span><br><span class="line">   Box3 = Box1 + Box2;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// Box3 的体积</span></span><br><span class="line">   volume = Box3.getVolume();</span><br><span class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">"Volume of Box3 : "</span> &lt;&lt; volume &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          C++ 类模板
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/yuque/cnuhh0/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kitty.kim/2019/03/18/yuque/zoa2yv/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kitty">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kitty Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/18/yuque/zoa2yv/" itemprop="url">C++ 虚继承</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T17:42:43+08:00">
-                2019-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          C++ 虚继承
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/yuque/zoa2yv/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kitty.kim/2019/03/18/yuque/yvurxt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kitty">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kitty Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/18/yuque/yvurxt/" itemprop="url">C++ 静态</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T17:42:12+08:00">
-                2019-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          C++ 静态
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/yuque/yvurxt/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kitty.kim/2019/03/18/yuque/xtdyib/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kitty">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kitty Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/18/yuque/xtdyib/" itemprop="url">C++ 接口类</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T17:41:32+08:00">
-                2019-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          C++ 接口类
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/yuque/xtdyib/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1536,12 +1733,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
             
 
             
@@ -1549,7 +1755,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
